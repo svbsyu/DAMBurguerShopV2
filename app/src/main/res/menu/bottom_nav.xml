@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Explorar"
+        android:id="@+id/explorar"
+        android:icon="@drawable/explore_ic"/>
+    <item android:title="Carrito"
+        android:id="@+id/carrito"
+        android:icon="@drawable/cart_ic"/>
+    <item android:title="Favoritos"
+        android:id="@+id/favoritos"
+        android:icon="@drawable/favorite_ic"/>
+    <item android:title="Panel"
+        android:id="@+id/panel"
+        android:icon="@drawable/admin_ic"/>
+</menu>

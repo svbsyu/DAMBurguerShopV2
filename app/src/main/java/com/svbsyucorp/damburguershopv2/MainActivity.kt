@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -28,23 +29,24 @@ import java.util.TimerTask
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var bannerViewPager: ViewPager2
+    private lateinit var binding: ActivityMainBinding
     private lateinit var timer: Timer
     private val bannerUrls = mutableListOf<String>()
     private lateinit var database: FirebaseDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         database = FirebaseDatabase.getInstance()
         initViews()
         loadData()
-//        setupBottomNavigation()
+        setupBottomNavigation()
     }
 
     private fun initViews() {
-        bannerViewPager = findViewById(R.id.bannerViewPager)
+        // Views are accessed via binding
     }
 
     private fun loadData() {
@@ -107,9 +109,9 @@ class MainActivity : AppCompatActivity() {
         bannerUrls.addAll(banners)
 
         val adapter = BannerAdapter(bannerUrls)
-        bannerViewPager.adapter = adapter
+        binding.bannerViewPager.adapter = adapter
 
-        findViewById<View>(R.id.progressBarBanner).visibility = View.GONE
+        binding.progressBarBanner.visibility = View.GONE
 
         if (bannerUrls.size > 1) {
             autoScrollBanner()
@@ -117,51 +119,57 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupCategories(categories: List<CategoryModel>) {
-        val recyclerView = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recyclerViewCategory)
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerViewCategory.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         val adapter = CategoryAdapter(categories) { category ->
             Toast.makeText(this, "Categoría seleccionada: ${category.title}", Toast.LENGTH_SHORT).show()
         }
-        recyclerView.adapter = adapter
+        binding.recyclerViewCategory.adapter = adapter
 
-        findViewById<View>(R.id.progressBarCategory).visibility = View.GONE
+        binding.progressBarCategory.visibility = View.GONE
     }
 
     private fun setupPopularItems(items: List<ItemModel>) {
-        val recyclerView = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recyclerViewPopular)
-        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        binding.recyclerViewPopular.layoutManager = GridLayoutManager(this, 2)
 
         val adapter = PopularAdapter(items) { item ->
             Toast.makeText(this, "Item seleccionado: ${item.title}", Toast.LENGTH_SHORT).show()
         }
-        recyclerView.adapter = adapter
+        binding.recyclerViewPopular.adapter = adapter
 
-        findViewById<View>(R.id.progressBarPopular).visibility = View.GONE
+        binding.progressBarPopular.visibility = View.GONE
     }
 
-//    private fun setupBottomNavigation() {
-//        findViewById<View>(R.id.explorerBtn).setOnClickListener {
-//            startActivity(Intent(this, ExplorarActivity::class.java))
-//        }
-//
-//        findViewById<View>(R.id.cartBtn).setOnClickListener {
-//            startActivity(Intent(this, CartActivity::class.java))
-//        }
-//
-//        findViewById<View>(R.id.favoriteBtn).setOnClickListener {
-//            startActivity(Intent(this, FavoritosActivity::class.java))
-//        }
-//
-//
-//    }
+    private fun setupBottomNavigation() {
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.explorar -> {
+                    startActivity(Intent(this, ExplorarActivity::class.java))
+                    true
+                }
+                R.id.carrito -> {
+                    Toast.makeText(this, "Carrito Próximamente", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.favoritos -> {
+                    Toast.makeText(this, "Favoritos Próximamente", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.panel -> {
+                    startActivity(Intent(this, AdminActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
+    }
 
     private fun autoScrollBanner() {
         val handler = Handler(Looper.getMainLooper())
         val runnable = Runnable {
-            val current = bannerViewPager.currentItem
+            val current = binding.bannerViewPager.currentItem
             val next = if (current + 1 < bannerUrls.size) current + 1 else 0
-            bannerViewPager.currentItem = next
+            binding.bannerViewPager.currentItem = next
         }
 
         timer = Timer()

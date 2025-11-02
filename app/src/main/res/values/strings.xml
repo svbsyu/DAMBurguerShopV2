@@ -11,4 +11,9 @@
     <string name="register_cta">Regístrate</string>
     <string name="hint_confirm_password">Vuelve a escribir tu contraseña</string>
     <string name="register_footer_login">¿Ya tienes una cuenta? Inicia sesión</string>
+
+    <!-- Admin -->
+    <string name="back_arrow_description">Volver atrás</string>
+    <string name="admin_panel">Panel de administrador</string>
+    <string name="logout">Cerrar sesión</string>
 </resources>
