@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">DAMBurguerShop</string>
+
+    <!-- Login -->
+    <string name="hint_email">Escribe tu correo</string>
+    <string name="hint_password">Escribe tu contraseña</string>
+    <string name="login_cta">Iniciar sesión</string>
+    <string name="login_footer_register">¿No tienes una cuenta? Regístrate</string>
+
+    <!-- Registro -->
+    <string name="register_cta">Regístrate</string>
+    <string name="hint_confirm_password">Vuelve a escribir tu contraseña</string>
+    <string name="register_footer_login">¿Ya tienes una cuenta? Inicia sesión</string>
+</resources>

@@ -1,0 +1,200 @@
+{
+  "Banner": [
+    {
+      "url": "https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/logo_opcional_mzhb9m.jpg"
+    },
+    {
+      "url": "https://res.cloudinary.com/dnmwffkfa/image/upload/v1761683808/Oferta1_smkvqp.png"
+    },
+    {
+      "url": "https://res.cloudinary.com/dnmwffkfa/image/upload/v1761683808/Oferta2_pkcze9.png"
+    }
+  ],
+  "Category": [
+    {
+      "id": 0,
+      "title": "Hamburguesa"
+    },
+    {
+      "id": 1,
+      "title": "Burrito"
+    },
+    {
+      "id": 2,
+      "title": "Pizza"
+    },
+    {
+      "id": 3,
+      "title": "Brocheta"
+    },
+    {
+      "id": 4,
+      "title": "Fusion"
+    }
+  ],
+  "Items": {
+    "0": {
+      "categoryId": "4",
+      "description": "Crispers crujientes hechos a mano sobre un mix de lechugas, pico de gallo, palta, culantro, tiras de tortilla, aderezo ranch y salsa santa fe.",
+      "extra": "Acevichada, Queso rallado, Tostones",
+      "picUrl": [
+        "https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/food7_geib16.png"
+      ],
+      "price": 4.5,
+      "rating": 4.6,
+      "title": "Santa Fe Crisper Salad"
+    },
+    "1": {
+      "categoryId": "0",
+      "description": "Imagina una hamburguesa vegana que encanta los sentidos con su mezcla única de sabores y texturas. Comienza con un jugoso filete vegano hecho de frijoles, lentejas, champiñones u otros vegetales y proteínas vegetales naturales.",
+      "extra": "Acevichada, Double Meat, Guacamole",
+      "picUrl": [
+        "https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/food1_mn5tkz.png"
+      ],
+      "price": 3.5,
+      "rating": 4,
+      "title": "Hamburguesa"
+    },
+    "2": {
+      "categoryId": "2",
+      "description": "La pizza de pepperoni es un clásico que a muchos les encanta, pero ¿alguna vez has probado agregar orégano fresco?.",
+      "extra": "Queso extra, Pepperoni, Orégano fresco",
+      "picUrl": [
+        "https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/food9_gj8fwe.png"
+      ],
+      "price": 8,
+      "rating": 4,
+      "title": "Pizza"
+    },
+    "3": {
+      "categoryId": "1",
+      "description": "Sub Boneless Mango Habanero: Nuevo sándwich con salsa de mango habanero, cebollitas crujientes, boneless de pollo y ingredientes frescos. Ideal para quienes adoran el sabor dulce y picante.",
+      "extra": "Crispy Spicy, Cebolla caramelizada",
+      "picUrl": [
+        "https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/food3_e4ze6z.png"
+      ],
+      "price": 5.5,
+      "rating": 4.4,
+      "title": "Sandwich Plant-Based"
+    },
+    "4": {
+      "categoryId": "1",
+      "description": "Filete marinado, camarones, frijoles negros, arroz español, limón, queso, salsa baja y salsa a elección.",
+      "extra": "Guacamole, Pico de gallo, Salsa picante",
+      "picUrl": [
+        "https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/food6_vpy360.png"
+      ],
+      "price": 5,
+      "rating": 4.6,
+      "title": "Burrito de Camarones"
+    },
+    "5": {
+      "categoryId": "3",
+      "description": "Deliciosa opción de comida que consiste en trozos de carne insertadas en un pincho y cocinados a la parrilla, acompañadas de verduras.",
+      "extra": "Brocheta, Less Onion, Papas al romero",
+      "picUrl": [
+        "https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/food8_tvd8k5.png"
+      ],
+      "price": 3.75,
+      "rating": 4.6,
+      "title": "Meat brocheta"
+    },
+    "6": {
+      "categoryId": "1",
+      "description": "Un comienzo perfecto para tu día con huevos revueltos, chorizo, papas sazonadas, queso y un toque de salsa picante, todo envuelto en una tortilla de harina.",
+      "extra": "Tocino, Queso cheddar, Salsa ranchera",
+      "picUrl": [
+        "https://res.cloudinary.com/dnmwffkfa/image/upload/v1761193167/Burrito_Ma%C3%B1anero_glwoad.png"
+      ],
+      "price": 3.5,
+      "rating": 4,
+      "title": "Burrito Mañanero del Sol"
+    },
+    "7": {
+      "categoryId": "1",
+      "description": "Disfruta de la profundidad del sabor ahumado con pollo desmenuzado en salsa tinga, cebolla caramelizada, frijoles refritos, queso Oaxaca y un poco de rábanos encurtidos para equilibrar.",
+      "extra": "Queso Oaxaca extra, Crema agria, Aguacate",
+      "picUrl": [
+        "https://res.cloudinary.com/dnmwffkfa/image/upload/v1761193579/Burrito_Tinga_Ahumada_bz6dv4.png"
+      ],
+      "price": 3.5,
+      "rating": 4,
+      "title": "Burrito de Pollo Tinga Ahumada"
+    },
+    "8": {
+      "categoryId": "1",
+      "description": "Sumérgete en el sabor con tierna carne asada a la parrilla, arroz rojo, frijoles negros, pico de gallo fresco, aguacate cremoso y un chorrito de crema agria.",
+      "extra": "Guacamole, Queso fundido, Salsa verde",
+      "picUrl": [
+        "https://res.cloudinary.com/dnmwffkfa/image/upload/v1761193780/Carne_asada_fiesta_vihhcm.png"
+      ],
+      "price": 3.5,
+      "rating": 4,
+      "title": "Burrito de Carne Asada Fiesta"
+    },
+    "9": {
+      "categoryId": "1",
+      "description": "Una opción fresca y saludable con una mezcla de vegetales a la parrilla (pimientos, cebollas, calabacín), frijoles pintos, arroz integral, maíz, lechuga y una vinagreta ligera de cilantro y limón.",
+      "extra": "Tofu, Maíz dulce, Salsa de yogur",
+      "picUrl": [
+        "https://res.cloudinary.com/dnmwffkfa/image/upload/v1761193882/Burrito_Vegetariano_szshlc.png"
+      ],
+      "price": 3.5,
+      "rating": 4,
+      "title": "Burrito Vegetariano del Huerto"
+    },
+    "-OczU8IW_vNCLdXt_AYv": {
+      "categoryId": "4",
+      "description": "MAme",
+      "extra": "nose",
+      "picUrl": [
+        "https://res.cloudinary.com/dnmwffkfa/image/upload/v1761683808/Oferta1_smkvqp.png"
+      ],
+      "price": 35,
+      "rating": 4,
+      "title": "Esta"
+    }
+  },
+  "Popular": [
+    {
+      "description": "Crispers crujientes hechos a mano sobre un mix de lechugas, pico de gallo, palta, culantro, tiras de tortilla, aderezo ranch y salsa santa fe.",
+      "extra": "Acevichada",
+      "picUrl": [
+        "https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/food7_geib16.png"
+      ],
+      "price": 4.5,
+      "rating": 4.6,
+      "title": "Santa Fe Crisper Salad"
+    },
+    {
+      "description": "Imagina una hamburguesa vegana que encanta los sentidos con su mezcla única de sabores y texturas. Comienza con un jugoso filete vegano hecho de frijoles, lentejas, champiñones u otros vegetales y proteínas vegetales naturales.",
+      "extra": "Acevichada, Double Meat",
+      "picUrl": [
+        "https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/food1_mn5tkz.png"
+      ],
+      "price": 3.5,
+      "rating": 4,
+      "title": "Hamburguesa"
+    },
+    {
+      "description": "La pizza de pepperoni es un clásico que a muchos les encanta, pero ¿alguna vez has probado agregar orégano fresco?.",
+      "extra": "Queso, Pepperoni",
+      "picUrl": [
+        "https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/food9_gj8fwe.png"
+      ],
+      "price": 8,
+      "rating": 4.1,
+      "title": "Pizza"
+    },
+    {
+      "description": "Sub Boneless Mango Habanero: Nuevo sándwich con salsa de mango habanero, cebollitas crujientes, boneless de pollo y ingredientes frescos. Ideal para quienes adoran el sabor dulce y picante.",
+      "extra": "Crispy Spicy",
+      "picUrl": [
+        "https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/food3_e4ze6z.png"
+      ],
+      "price": 5.5,
+      "rating": 4.4,
+      "title": "Sandwich Plant-Based"
+    }
+  ]
+}
