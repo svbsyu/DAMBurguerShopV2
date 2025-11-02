@@ -148,7 +148,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.carrito -> {
-                    Toast.makeText(this, "Carrito Próximamente", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, CartActivity::class.java))
                     true
                 }
                 R.id.favoritos -> {

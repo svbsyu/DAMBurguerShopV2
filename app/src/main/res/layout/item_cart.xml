@@ -44,7 +44,8 @@
             android:id="@+id/buttonMinus"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@android:drawable/ic_menu_delete"
+            android:src="@drawable/ic_minus"
+            android:backgroundTint="@color/white"
             android:background="?attr/selectableItemBackgroundBorderless" />
 
         <TextView
@@ -65,7 +66,7 @@
             android:id="@+id/buttonRemove"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:src="@android:drawable/ic_menu_delete"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:layout_marginStart="8dp" />
 

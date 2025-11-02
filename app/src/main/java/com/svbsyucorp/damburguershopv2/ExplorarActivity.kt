@@ -10,6 +10,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.svbsyucorp.damburguershopv2.databinding.ActivityExplorarBinding
 
+
 class ExplorarActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityExplorarBinding
@@ -23,6 +24,10 @@ class ExplorarActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance()
 
         initMenu()
+
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun initMenu() {
