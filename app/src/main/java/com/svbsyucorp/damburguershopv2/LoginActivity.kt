@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
             if (email.isNotEmpty() && pass.isNotEmpty()){
                 // Verificar credenciales de administrador
                 if (email.contains("@admin.com")) {
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, AdminActivity::class.java)
                     startActivity(intent)
                     finish()
                     return@setOnClickListener

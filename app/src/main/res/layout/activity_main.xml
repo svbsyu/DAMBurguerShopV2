@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2F2E2E"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <androidx.core.widget.NestedScrollView
@@ -53,7 +53,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Categorías"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -98,15 +98,16 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Populares"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/txt_ver_todo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ver todo"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout

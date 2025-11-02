@@ -1,6 +1,8 @@
 package com.svbsyucorp.damburguershopv2.domain
 
 data class CategoryModel(
-    val id: Int = 0,
-    val title: String = ""
-)
+    var id: Int = 0,
+    var title: String = ""
+) {
+    constructor() : this(0, "")
+}

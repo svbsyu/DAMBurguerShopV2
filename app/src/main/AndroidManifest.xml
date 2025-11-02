@@ -21,6 +21,15 @@
             android:name=".AdminActivity"
             android:exported="false" />
         <activity
+            android:name=".ManageDishesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateDishActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditDishActivity"
+            android:exported="false" />
+        <activity
             android:name=".ExplorarActivity"
             android:exported="false" />
         <activity

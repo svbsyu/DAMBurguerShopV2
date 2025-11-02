@@ -5,7 +5,7 @@
     android:id="@+id/explorerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightCream"
+    android:background="@color/white"
     tools:context=".ExplorarActivity">
 
     <androidx.core.widget.NestedScrollView
@@ -48,7 +48,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="Regresar"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -58,7 +58,7 @@
                     android:layout_weight="1"
                     android:text="Encuentra tu favorita"
                     android:textAlignment="center"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 

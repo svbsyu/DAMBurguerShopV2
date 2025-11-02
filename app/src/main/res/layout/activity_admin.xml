@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2F2E2E"
+    android:background="#F5EFEC"
     tools:context=".AdminActivity">
 
     <ImageView
@@ -13,35 +13,53 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_back"
+        android:tint="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:contentDescription="@string/back_arrow_description" />
+        android:contentDescription="Volver" />
 
     <Button
-        android:id="@+id/admin_panel_button"
+        android:id="@+id/btn_pedidos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/admin_panel"
-        android:backgroundTint="@color/yellow"
+        android:text="Pedidos"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/orange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/logout_button"
+        app:layout_constraintBottom_toTopOf="@+id/btn_ver_platos"
         app:layout_constraintVertical_chainStyle="packed"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"/>
 
     <Button
-        android:id="@+id/logout_button"
+        android:id="@+id/btn_ver_platos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/logout"
+        android:text="Ver Platos"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_pedidos"
+        app:layout_constraintBottom_toTopOf="@+id/btn_cerrar_sesion"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/btn_cerrar_sesion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesión"
+        android:textColor="@color/white"
         android:backgroundTint="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/admin_panel_button"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ver_platos"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"

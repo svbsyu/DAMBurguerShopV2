@@ -15,7 +15,7 @@ import com.svbsyucorp.damburguershopv2.domain.CartManager
 import com.svbsyucorp.damburguershopv2.domain.ItemModel
 
 class PopularAdapter(
-    private val items: List<ItemModel>,
+    private var items: MutableList<ItemModel>,
     private val onItemClick: (ItemModel) -> Unit
 ) : RecyclerView.Adapter<PopularAdapter.PopularViewHolder>() {
 
@@ -74,6 +74,12 @@ class PopularAdapter(
     }
 
     override fun getItemCount(): Int = items.size
+
+    fun updateItems(newItems: List<ItemModel>) {
+        items.clear()
+        items.addAll(newItems)
+        notifyDataSetChanged()
+    }
 
     private fun updateFavoriteButton(button: ImageView, isFavorite: Boolean) {
         val favoriteIcon = if (isFavorite) R.drawable.favorite_filled else R.drawable.favorite_ic

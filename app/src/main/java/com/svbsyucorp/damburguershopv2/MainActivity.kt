@@ -20,6 +20,7 @@ import com.svbsyucorp.damburguershopv2.adapter.PopularAdapter
 import com.svbsyucorp.damburguershopv2.databinding.ActivityMainBinding
 import com.svbsyucorp.damburguershopv2.domain.CategoryModel
 import com.svbsyucorp.damburguershopv2.domain.ItemModel
+import android.widget.TextView
 import java.util.Timer
 import java.util.TimerTask
 
@@ -27,9 +28,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var timer: Timer
-    private val bannerUrls = mutableListOf<String>()
     private lateinit var database: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
+    private var allItems = mutableListOf<ItemModel>()
+    private lateinit var popularAdapter: PopularAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +44,14 @@ class MainActivity : AppCompatActivity() {
         initViews()
         loadData()
         setupBottomNavigation()
+        setupVerTodoButton()
+    }
+
+    private fun setupVerTodoButton() {
+        val txtVerTodo = findViewById<TextView>(R.id.txt_ver_todo)
+        txtVerTodo.setOnClickListener {
+            startActivity(Intent(this, ExplorarActivity::class.java))
+        }
     }
 
     private fun initViews() {
@@ -58,13 +68,33 @@ class MainActivity : AppCompatActivity() {
             CategoryModel(4, "Fusion")
         )
 
-        val banners = listOf(
-            "https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/logo_opcional_mzhb9m.jpg"
-        )
-
-        setupBanner(banners)
+        loadBanners()
         setupCategories(categories)
         loadFavoriteItemsAndThenPopularItems()
+    }
+
+    private fun loadBanners() {
+        database.reference.child("Banner")
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val banners = mutableListOf<String>()
+                    for (bannerSnapshot in snapshot.children) {
+                        val bannerUrl = bannerSnapshot.child("url").getValue(String::class.java)
+                        if (bannerUrl != null) {
+                            banners.add(bannerUrl)
+                        }
+                    }
+                    if (banners.isEmpty()) {
+                        banners.add("https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/logo_opcional_mzhb9m.jpg")
+                    }
+                    setupBanner(banners)
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    val defaultBanners = listOf("https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/logo_opcional_mzhb9m.jpg")
+                    setupBanner(defaultBanners)
+                }
+            })
     }
 
     private fun loadFavoriteItemsAndThenPopularItems() {
@@ -110,16 +140,12 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun setupBanner(banners: List<String>) {
-        bannerUrls.clear()
-        bannerUrls.addAll(banners)
-
-        val adapter = BannerAdapter(bannerUrls)
+        val adapter = BannerAdapter(banners)
         binding.bannerViewPager.adapter = adapter
-
         binding.progressBarBanner.visibility = View.GONE
 
-        if (bannerUrls.size > 1) {
-            autoScrollBanner()
+        if (banners.size > 1) {
+            autoScrollBanner(banners.size)
         }
     }
 
@@ -127,20 +153,30 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerViewCategory.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         val adapter = CategoryAdapter(categories) { category ->
-            Toast.makeText(this, "Categoría seleccionada: ${category.title}", Toast.LENGTH_SHORT).show()
+            filterItemsByCategory(category.id)
         }
         binding.recyclerViewCategory.adapter = adapter
 
         binding.progressBarCategory.visibility = View.GONE
     }
 
+    private fun filterItemsByCategory(categoryId: Int) {
+        val filteredItems = allItems.filter { it.categoryId == categoryId.toString() }
+        if (::popularAdapter.isInitialized) {
+            popularAdapter.updateItems(filteredItems)
+        }
+    }
+
     private fun setupPopularItems(items: List<ItemModel>) {
         binding.recyclerViewPopular.layoutManager = GridLayoutManager(this, 2)
+        
+        allItems.clear()
+        allItems.addAll(items)
 
-        val adapter = PopularAdapter(items) { item ->
+        popularAdapter = PopularAdapter(items.toMutableList()) { item ->
             Toast.makeText(this, "Item seleccionado: ${item.title}", Toast.LENGTH_SHORT).show()
         }
-        binding.recyclerViewPopular.adapter = adapter
+        binding.recyclerViewPopular.adapter = popularAdapter
 
         binding.progressBarPopular.visibility = View.GONE
     }
@@ -169,11 +205,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun autoScrollBanner() {
+    private fun autoScrollBanner(bannerCount: Int) {
         val handler = Handler(Looper.getMainLooper())
         val runnable = Runnable {
             val current = binding.bannerViewPager.currentItem
-            val next = if (current + 1 < bannerUrls.size) current + 1 else 0
+            val next = if (current + 1 < bannerCount) current + 1 else 0
             binding.bannerViewPager.currentItem = next
         }
 
@@ -182,7 +218,7 @@ class MainActivity : AppCompatActivity() {
             override fun run() {
                 handler.post(runnable)
             }
-        }, 3000, 3000)
+        }, 2000, 2000)
     }
 
     override fun onDestroy() {

@@ -4,10 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 
 class AdminActivity : AppCompatActivity() {
@@ -17,16 +15,24 @@ class AdminActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         auth = FirebaseAuth.getInstance()
 
-        val logoutButton = findViewById<Button>(R.id.logout_button)
-        logoutButton.setOnClickListener {
+        val btnPedidos = findViewById<Button>(R.id.btn_pedidos)
+        val btnVerPlatos = findViewById<Button>(R.id.btn_ver_platos)
+        val btnCerrarSesion = findViewById<Button>(R.id.btn_cerrar_sesion)
+        val backArrow = findViewById<ImageView>(R.id.back_arrow)
+
+        btnPedidos.setOnClickListener {
+            Toast.makeText(this, "Pedidos", Toast.LENGTH_SHORT).show()
+        }
+
+        btnVerPlatos.setOnClickListener {
+            val intent = Intent(this, ManageDishesActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnCerrarSesion.setOnClickListener {
             auth.signOut()
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -34,7 +40,6 @@ class AdminActivity : AppCompatActivity() {
             finish()
         }
 
-        val backArrow = findViewById<ImageView>(R.id.back_arrow)
         backArrow.setOnClickListener {
             onBackPressed()
         }

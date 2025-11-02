@@ -6,7 +6,7 @@
     android:id="@+id/favoriteLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2F2E2E"
+    android:background="@color/white"
     tools:context=".FavoritosActivity">
 
 
@@ -33,6 +33,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:tint="@color/black"
                 app:srcCompat="@drawable/ic_back" />
 
             <TextView
@@ -40,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="Regresar"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:gravity="center_vertical"/>
         </LinearLayout>
@@ -51,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Favoritos"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -66,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="No tienes productos favoritos"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/headerLayout"
