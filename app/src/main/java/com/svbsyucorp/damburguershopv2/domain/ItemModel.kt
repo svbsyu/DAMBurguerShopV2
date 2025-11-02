@@ -1,11 +1,13 @@
 package com.svbsyucorp.damburguershopv2.domain
 
 data class ItemModel(
+    var id: String = "",
     val categoryId: String = "",
     val description: String = "",
     val extra: String = "",
     val picUrl: List<String> = emptyList(),
     val price: Double = 0.0,
     val rating: Double = 0.0,
-    val title: String = ""
+    val title: String = "",
+    var isFavorite: Boolean = false
 )

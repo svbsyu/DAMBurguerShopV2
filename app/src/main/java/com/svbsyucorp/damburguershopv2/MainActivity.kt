@@ -6,14 +6,10 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -33,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var timer: Timer
     private val bannerUrls = mutableListOf<String>()
     private lateinit var database: FirebaseDatabase
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         database = FirebaseDatabase.getInstance()
+        auth = FirebaseAuth.getInstance()
+        
         initViews()
         loadData()
         setupBottomNavigation()
@@ -65,45 +64,51 @@ class MainActivity : AppCompatActivity() {
 
         setupBanner(banners)
         setupCategories(categories)
-
-        // Cargar items desde Firebase
-        loadItemsFromFirebase()
+        loadFavoriteItemsAndThenPopularItems()
     }
 
-    private fun loadItemsFromFirebase() {
+    private fun loadFavoriteItemsAndThenPopularItems() {
+        val currentUser = auth.currentUser
+        if (currentUser == null) {
+            loadPopularItems(emptySet()) // Cargar sin favoritos si no hay sesión
+            return
+        }
+
+        val favoriteRef = database.reference.child("Favorites").child(currentUser.uid)
+        favoriteRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val favoriteIds = snapshot.children.mapNotNull { it.key }.toSet()
+                loadPopularItems(favoriteIds)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                loadPopularItems(emptySet()) // Cargar sin favoritos si hay error
+            }
+        })
+    }
+
+    private fun loadPopularItems(favoriteIds: Set<String>) {
         database.reference.child("Items")
-            .addValueEventListener(object : ValueEventListener {
+            .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val items = mutableListOf<ItemModel>()
                     for (itemSnapshot in snapshot.children) {
                         val item = itemSnapshot.getValue(ItemModel::class.java)
-                        item?.let { items.add(it) }
+                        if (item != null) {
+                            item.id = itemSnapshot.key.orEmpty()
+                            item.isFavorite = favoriteIds.contains(item.id)
+                            items.add(item)
+                        }
                     }
                     setupPopularItems(items)
                 }
 
                 override fun onCancelled(error: DatabaseError) {
                     Toast.makeText(this@MainActivity, "Error cargando platillos", Toast.LENGTH_SHORT).show()
-                    loadBackupData()
                 }
             })
     }
-
-    private fun loadBackupData() {
-        val backupItems = listOf(
-            ItemModel(
-                categoryId = "0",
-                description = "Hamburguesa clásica con ingredientes frescos",
-                extra = "Clásica",
-                picUrl = listOf("https://res.cloudinary.com/dkauxesya/image/upload/v1760165943/food1_mn5tkz.png"),
-                price = 3.5,
-                rating = 4.0,
-                title = "Hamburguesa Clásica"
-            )
-        )
-        setupPopularItems(backupItems)
-    }
-
+    
     private fun setupBanner(banners: List<String>) {
         bannerUrls.clear()
         bannerUrls.addAll(banners)
@@ -152,7 +157,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.favoritos -> {
-                    Toast.makeText(this, "Favoritos Próximamente", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, FavoritosActivity::class.java))
                     true
                 }
                 R.id.panel -> {

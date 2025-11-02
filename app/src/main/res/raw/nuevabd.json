@@ -32,8 +32,8 @@
       "title": "Fusion"
     }
   ],
-  "Items": {
-    "0": {
+  "Items": [
+    {
       "categoryId": "4",
       "description": "Crispers crujientes hechos a mano sobre un mix de lechugas, pico de gallo, palta, culantro, tiras de tortilla, aderezo ranch y salsa santa fe.",
       "extra": "Acevichada, Queso rallado, Tostones",
@@ -44,7 +44,7 @@
       "rating": 4.6,
       "title": "Santa Fe Crisper Salad"
     },
-    "1": {
+    {
       "categoryId": "0",
       "description": "Imagina una hamburguesa vegana que encanta los sentidos con su mezcla única de sabores y texturas. Comienza con un jugoso filete vegano hecho de frijoles, lentejas, champiñones u otros vegetales y proteínas vegetales naturales.",
       "extra": "Acevichada, Double Meat, Guacamole",
@@ -55,7 +55,7 @@
       "rating": 4,
       "title": "Hamburguesa"
     },
-    "2": {
+    {
       "categoryId": "2",
       "description": "La pizza de pepperoni es un clásico que a muchos les encanta, pero ¿alguna vez has probado agregar orégano fresco?.",
       "extra": "Queso extra, Pepperoni, Orégano fresco",
@@ -66,7 +66,7 @@
       "rating": 4,
       "title": "Pizza"
     },
-    "3": {
+    {
       "categoryId": "1",
       "description": "Sub Boneless Mango Habanero: Nuevo sándwich con salsa de mango habanero, cebollitas crujientes, boneless de pollo y ingredientes frescos. Ideal para quienes adoran el sabor dulce y picante.",
       "extra": "Crispy Spicy, Cebolla caramelizada",
@@ -77,7 +77,7 @@
       "rating": 4.4,
       "title": "Sandwich Plant-Based"
     },
-    "4": {
+    {
       "categoryId": "1",
       "description": "Filete marinado, camarones, frijoles negros, arroz español, limón, queso, salsa baja y salsa a elección.",
       "extra": "Guacamole, Pico de gallo, Salsa picante",
@@ -88,7 +88,7 @@
       "rating": 4.6,
       "title": "Burrito de Camarones"
     },
-    "5": {
+    {
       "categoryId": "3",
       "description": "Deliciosa opción de comida que consiste en trozos de carne insertadas en un pincho y cocinados a la parrilla, acompañadas de verduras.",
       "extra": "Brocheta, Less Onion, Papas al romero",
@@ -99,7 +99,7 @@
       "rating": 4.6,
       "title": "Meat brocheta"
     },
-    "6": {
+    {
       "categoryId": "1",
       "description": "Un comienzo perfecto para tu día con huevos revueltos, chorizo, papas sazonadas, queso y un toque de salsa picante, todo envuelto en una tortilla de harina.",
       "extra": "Tocino, Queso cheddar, Salsa ranchera",
@@ -110,7 +110,7 @@
       "rating": 4,
       "title": "Burrito Mañanero del Sol"
     },
-    "7": {
+    {
       "categoryId": "1",
       "description": "Disfruta de la profundidad del sabor ahumado con pollo desmenuzado en salsa tinga, cebolla caramelizada, frijoles refritos, queso Oaxaca y un poco de rábanos encurtidos para equilibrar.",
       "extra": "Queso Oaxaca extra, Crema agria, Aguacate",
@@ -121,7 +121,7 @@
       "rating": 4,
       "title": "Burrito de Pollo Tinga Ahumada"
     },
-    "8": {
+    {
       "categoryId": "1",
       "description": "Sumérgete en el sabor con tierna carne asada a la parrilla, arroz rojo, frijoles negros, pico de gallo fresco, aguacate cremoso y un chorrito de crema agria.",
       "extra": "Guacamole, Queso fundido, Salsa verde",
@@ -132,7 +132,7 @@
       "rating": 4,
       "title": "Burrito de Carne Asada Fiesta"
     },
-    "9": {
+    {
       "categoryId": "1",
       "description": "Una opción fresca y saludable con una mezcla de vegetales a la parrilla (pimientos, cebollas, calabacín), frijoles pintos, arroz integral, maíz, lechuga y una vinagreta ligera de cilantro y limón.",
       "extra": "Tofu, Maíz dulce, Salsa de yogur",
@@ -143,18 +143,62 @@
       "rating": 4,
       "title": "Burrito Vegetariano del Huerto"
     },
-    "-OczU8IW_vNCLdXt_AYv": {
-      "categoryId": "4",
-      "description": "MAme",
-      "extra": "nose",
+    {
+      "categoryId": "2",
+      "description": "La clásica pizza napolitana. Preparada con nuestra salsa de tomate San Marzano de autor, queso mozzarella fresco, hojas de albahaca fresca y un toque de aceite de oliva virgen extra.",
+      "extra": "Doble Mozzarella, Borde de Queso",
       "picUrl": [
-        "https://res.cloudinary.com/dnmwffkfa/image/upload/v1761683808/Oferta1_smkvqp.png"
+        "https://res.cloudinary.com/dnmwffkfa/image/upload/v1762046538/pizza1_frttxk.png"
       ],
-      "price": 35,
+      "price": 12.5,
       "rating": 4,
-      "title": "Esta"
+      "title": "Pizza Margherita Clásica"
+    },
+    {
+      "categoryId": "2",
+      "description": "Para los que lo quieren todo. Una combinación robusta de pepperoni premium, salchicha italiana, pimientos verdes frescos, cebolla roja, aceitunas negras y nuestra mezcla de quesos de la casa",
+      "extra": "Extra Queso, Jalapeños",
+      "picUrl": [
+        "https://res.cloudinary.com/dnmwffkfa/image/upload/v1762048403/pizza2_ocfmwy.png"
+      ],
+      "price": 15.75,
+      "rating": 4,
+      "title": "Pizza Suprema"
+    },
+    {
+      "categoryId": "2",
+      "description": "Fresca y llena de sabor. Una generosa mezcla de champiñones frescos, pimientos verdes crujientes, aceitunas negras, cebolla y tomates cherry sobre nuestra salsa de tomate clásica.",
+      "extra": "Queso Vegano, Espinaca Fresca",
+      "picUrl": [
+        "https://res.cloudinary.com/dnmwffkfa/image/upload/v1762048403/pizza4_tkgptq.png"
+      ],
+      "price": 13,
+      "rating": 4,
+      "title": "Pizza Vegetariana del Huerto"
+    },
+    {
+      "categoryId": "2",
+      "description": "Una explosión tropical de sabores. Nuestra base de salsa de tomate, mozzarella fundida, jamón ahumado y jugosos trozos de piña, que crean una combinación dulce y salada irresistible",
+      "extra": "Extra Piña, Tocino Crujiente",
+      "picUrl": [
+        "https://res.cloudinary.com/dnmwffkfa/image/upload/v1762048403/pizza5_nzjon9.png"
+      ],
+      "price": 13.5,
+      "rating": 4,
+      "title": "Pizza Hawaiana Tropical"
+    },
+    {
+      "categoryId": "2",
+      "description": "Un sabor dulce y ahumado. Tiernos trozos de pollo a la parrilla bañados en salsa BBQ, con cebolla morada en rodajas finas, cilantro fresco y una base de queso mozzarella derretido.",
+      "extra": "Tocino Ahumado, Piña",
+      "picUrl": [
+        "https://res.cloudinary.com/dnmwffkfa/image/upload/v1762048404/pizza3_cn5aks.png"
+      ],
+      "price": 14.5,
+      "rating": 4,
+      "title": "Pizza BBQ Chicken"
     }
-  },
+  ],
   "Popular": [
     {
       "description": "Crispers crujientes hechos a mano sobre un mix de lechugas, pico de gallo, palta, culantro, tiras de tortilla, aderezo ranch y salsa santa fe.",
