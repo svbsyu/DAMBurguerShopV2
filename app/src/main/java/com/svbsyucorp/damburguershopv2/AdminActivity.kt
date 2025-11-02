@@ -24,7 +24,8 @@ class AdminActivity : AppCompatActivity() {
         val backArrow = findViewById<ImageView>(R.id.back_arrow)
 
         btnPedidos.setOnClickListener {
-            Toast.makeText(this, "Pedidos", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, PedidosActivity::class.java)
+            startActivity(intent)
         }
 
         btnVerPlatos.setOnClickListener {
