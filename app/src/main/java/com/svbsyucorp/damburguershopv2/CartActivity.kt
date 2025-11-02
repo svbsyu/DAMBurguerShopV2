@@ -1,8 +1,10 @@
 package com.svbsyucorp.damburguershopv2
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +16,7 @@ import com.svbsyucorp.damburguershopv2.adapter.CartAdapter
 import com.svbsyucorp.damburguershopv2.domain.CartItem
 import com.svbsyucorp.damburguershopv2.domain.CartManager
 import java.util.HashMap
+import com.airbnb.lottie.LottieAnimationView
 
 class CartActivity : AppCompatActivity() {
 
@@ -21,6 +24,8 @@ class CartActivity : AppCompatActivity() {
     private lateinit var totalTextView: TextView
     private lateinit var adapter: CartAdapter
     private lateinit var buttonCheckout: Button
+    private lateinit var emptyCartLayout: LinearLayout
+    private lateinit var emptyAnimation: LottieAnimationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,12 +34,15 @@ class CartActivity : AppCompatActivity() {
         initViews()
         setupRecyclerView()
         updateTotal()
+        updateEmptyState()
     }
 
     private fun initViews() {
         recyclerView = findViewById(R.id.recyclerViewCart)
         totalTextView = findViewById(R.id.textViewTotal)
         buttonCheckout = findViewById(R.id.buttonCheckout)
+        emptyCartLayout = findViewById(R.id.empty_cart_layout)
+        emptyAnimation = findViewById(R.id.empty_cart_animation)
 
         buttonCheckout.setOnClickListener {
             if (CartManager.getItems().isNotEmpty()) {
@@ -92,11 +100,11 @@ class CartActivity : AppCompatActivity() {
             }
     }
 
-
     private fun setupRecyclerView() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = CartAdapter(CartManager.getItems().toMutableList()) {
             updateTotal()
+            updateEmptyState()
         }
         recyclerView.adapter = adapter
     }
@@ -104,5 +112,17 @@ class CartActivity : AppCompatActivity() {
     private fun updateTotal() {
         val total = CartManager.getTotalPrice()
         totalTextView.text = "Total: $${String.format("%.2f", total)}"
+    }
+
+    private fun updateEmptyState() {
+        val isEmpty = CartManager.getItems().isEmpty()
+        
+        if (isEmpty) {
+            emptyCartLayout.visibility = View.VISIBLE
+            recyclerView.visibility = View.GONE
+        } else {
+            emptyCartLayout.visibility = View.GONE
+            recyclerView.visibility = View.VISIBLE
+        }
     }
 }
