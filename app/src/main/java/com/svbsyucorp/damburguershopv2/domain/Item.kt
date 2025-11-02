@@ -1,4 +1,4 @@
-package com.svbsyucorp.damburguershopv2
+package com.svbsyucorp.damburguershopv2.domain
 
 data class Item(
     var id: String = "",

@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance()
         auth = FirebaseAuth.getInstance()
+
         
         initViews()
         loadData()
@@ -197,7 +198,11 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.panel -> {
-                    startActivity(Intent(this, AdminActivity::class.java))
+                    auth.signOut()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
                     true
                 }
                 else -> false

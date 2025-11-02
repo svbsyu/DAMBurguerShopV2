@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.svbsyucorp.damburguershopv2.databinding.ItemMenuBinding
+import com.svbsyucorp.damburguershopv2.domain.Item
 
 class MenuAdapter(
     private val items: MutableList<Item>,

@@ -10,7 +10,7 @@
     <item android:title="Favoritos"
         android:id="@+id/favoritos"
         android:icon="@drawable/favorite_ic"/>
-    <item android:title="Panel"
+    <item android:title="Cerrar Sesion"
         android:id="@+id/panel"
-        android:icon="@drawable/admin_ic"/>
+        android:icon="@drawable/cerrar_ic"/>
 </menu>

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.svbsyucorp.damburguershopv2.databinding.ActivityFavoritosBinding
+import com.svbsyucorp.damburguershopv2.domain.Item
 
 class FavoritosActivity : AppCompatActivity() {
 
